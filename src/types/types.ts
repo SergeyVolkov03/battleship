@@ -3,11 +3,10 @@ export type Player_request = {
   password: string;
 };
 
-export type Player_response = {
+export type Player = {
   name: string;
-  index: number | string;
-  error: boolean;
-  errorText: string;
+  password: string;
+  wins: number;
 };
 
 export type Message = {
