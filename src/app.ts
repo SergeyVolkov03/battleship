@@ -3,6 +3,7 @@ import { Commands } from './commands/commands';
 import { WebSocketWithID } from './types/types';
 import { DB } from './db';
 import { parserRequest } from './helpers/parser';
+import { addPlayerToRoom, createRoom } from './handlers/room';
 
 export const db = new DB();
 
@@ -17,8 +18,10 @@ export function app(ws: WebSocketWithID) {
         registration(ws, data);
         break;
       case Commands.CREATE_ROOM:
-        console.log(request);
-        console.log(ws.id);
+        createRoom(ws);
+        break;
+      case Commands.ADD_USER_TO_ROOM:
+        addPlayerToRoom(ws, data);
         break;
     }
   });

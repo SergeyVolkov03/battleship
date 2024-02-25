@@ -1,6 +1,6 @@
 import { Commands } from '../commands/commands';
 import { db } from '../app';
-import { Message, Player_request, WebSocketWithID } from '../types/types';
+import { Player_request, WebSocketWithID } from '../types/types';
 import { updateWinners } from './winners';
 
 export function registration(ws: WebSocketWithID, player: Player_request) {
@@ -13,8 +13,8 @@ export function registration(ws: WebSocketWithID, player: Player_request) {
       error: false,
       errorText: '',
     }),
-  } as Message;
-  ws.id = playerFromDB.id;
+  };
+  ws.playerId = playerFromDB.id;
   ws.send(JSON.stringify(response));
   updateWinners();
 }

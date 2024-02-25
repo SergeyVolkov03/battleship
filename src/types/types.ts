@@ -18,4 +18,13 @@ export type Message = {
   id: number;
 };
 
-export type WebSocketWithID = WebSocket & { id: string };
+export type Game = {
+  gameId: string;
+  players: Player[];
+};
+
+export type Room = {
+  indexRoom: string;
+};
+
+export type WebSocketWithID = WebSocket & { playerId: string; gameId: string };
