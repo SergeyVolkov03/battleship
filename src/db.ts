@@ -1,17 +1,20 @@
+import { randomUUID } from 'crypto';
 import { Player, Player_request } from './types/types';
 
 export class DB {
   players: Player[] = [];
 
   addPlayerToDB(player: Player_request) {
-    this.players.push({ wins: 0, ...player });
+    const playerForDB = { wins: 0, ...player, id: randomUUID() };
+    this.players.push(playerForDB);
+    return playerForDB;
   }
 
   getPlayers() {
     return this.players;
   }
 
-  createPlayerINdex() {
-    return this.players.length;
+  getPlayerByID(id: string) {
+    return this.players.find((player) => player.id === id);
   }
 }
