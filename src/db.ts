@@ -32,6 +32,10 @@ export class DB {
     return gameId;
   }
 
+  getGames() {
+    return this.games;
+  }
+
   getGameById(gameId: string) {
     return this.games.find((game) => game.gameId === gameId);
   }

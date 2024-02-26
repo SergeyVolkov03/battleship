@@ -27,4 +27,14 @@ export type Room = {
   indexRoom: string;
 };
 
+export type RoomData = {
+  roomId: string;
+  roomUsers: RoomUser[];
+};
+
+export type RoomUser = {
+  name: string;
+  index: string;
+};
+
 export type WebSocketWithID = WebSocket & { playerId: string; gameId: string };
