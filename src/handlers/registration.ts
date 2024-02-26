@@ -5,7 +5,7 @@ import { updateWinners } from './winners';
 import { updateRooms } from './room';
 
 export function registration(ws: WebSocketWithID, player: Player_request) {
-  const playerFromDB = db.addPlayerToDB(player);
+  const playerFromDB = db.addPlayerToDB(player, ws);
   const response = {
     type: Commands.PLAYER_AUTHORIZATION,
     data: JSON.stringify({

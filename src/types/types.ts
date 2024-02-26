@@ -10,6 +10,7 @@ export type Player = {
   password: string;
   wins: number;
   id: string;
+  socket: WebSocketWithID;
 };
 
 export type Message = {
@@ -23,10 +24,6 @@ export type Game = {
   players: Player[];
 };
 
-export type Room = {
-  indexRoom: string;
-};
-
 export type RoomData = {
   roomId: string;
   roomUsers: RoomUser[];
@@ -35,6 +32,10 @@ export type RoomData = {
 export type RoomUser = {
   name: string;
   index: string;
+};
+
+export type Roomrequest = {
+  indexRoom: string;
 };
 
 export type WebSocketWithID = WebSocket & { playerId: string; gameId: string };
